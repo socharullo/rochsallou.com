@@ -1,0 +1,400 @@
+/* ==================================================
+   1. GLOBAL
+   ================================================== */
+
+body {
+    background-color: black  ;
+    color: whitesmoke;
+    font-family: 'Inter', sans-serif;
+    font-feature-settings: "ss03", "cv02", "cv11";
+    font-size: 14px;
+    text-align: justify;
+}
+
+/* Effet de curseur halo */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(
+        700px circle at var(--mouse-x) var(--mouse-y),
+        rgba(139, 92, 246, 0.1),
+        transparent 80%
+    );
+    z-index: 9999;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 120px;
+}
+
+/* ==================================================
+   2. TYPOGRAPHY
+   ================================================== */
+
+h1 {
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+h3 {
+    font-size: 20px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+h4 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+p {
+    width: 80%;
+    line-height: 1.5;
+}
+
+ul {
+    line-height: 2;
+    margin-bottom: 20px;
+}
+
+/* ==================================================
+   3. LINKS
+   ================================================== */
+
+a {
+    text-decoration: none;
+}
+
+a:link { /* lien normal */
+    color : whitesmoke
+}
+
+a:visited { /* lien visité */
+    color: whitesmoke;
+}
+
+
+a:hover { /* lien survolé */
+    color: gray;
+}
+
+/* ==================================================
+   4. LAYOUT
+   ================================================== */
+
+.layout {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    padding: 80px 40px;
+}
+
+.content {
+    padding: 80px 40px;
+}
+
+section {
+    min-height: 40vh;
+}
+
+
+/* ==================================================
+   5. SIDEBAR
+   ================================================== */
+
+#nom {
+    margin-bottom: 5px;
+    font-weight: 700;
+    font-size: 45px;
+}
+
+#fonction {
+    margin-top: 10px;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+/* ==================================================
+   6. NAVIGATION
+   ================================================== */
+
+nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    margin-top: 60px;
+    font-size: 14px;
+}
+
+nav a {
+    transition: all 0.2s ease;
+}
+
+nav a:hover {
+    transform: translateX(5px);
+}
+
+nav a::before {
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 1px;
+    background: currentColor;
+    margin-right: 10px;
+    vertical-align: middle;
+    transition: width 0.2s ease;
+}
+
+nav a:hover::before {
+    width: 50px;
+}
+
+nav a.active::before {
+    width: 50px;
+}
+
+/* ==================================================
+   7. OPEN TO WORK
+   ================================================== */
+
+.disponibilité {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: whitesmoke;
+    font-size: 14px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: #22c55e;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5);
+    }
+
+    70% {
+        box-shadow: 0 0 0 7px rgba(34, 197, 94, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+    }
+}
+
+/* ==================================================
+   8. SOCIAL LINKS
+   ================================================== */
+
+.social-links {
+    display: flex;
+    gap: 20px;
+    margin-top: 200px;
+}
+
+.social-links a {
+    font-size: 22px;
+    color: whitesmoke;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+
+.social-links a:hover {
+    opacity: 0.3;
+}
+
+/* ==================================================
+   9. SECTIONS
+   ================================================== */
+
+#about {
+    font-size: 16px;
+    font-weight: 200;
+    margin-bottom: 100px;
+    opacity: 1;
+}
+
+#projets {
+    margin-bottom: 40px;
+}
+
+#certifications {
+    margin-top: 80px;
+    margin-bottom: 0;
+}
+
+#diplomes {
+    margin-top: 80px;
+    margin-bottom: 40px;
+}
+
+#parcours {
+    margin-top: 80px;
+    margin-bottom: 40px;
+}
+
+#fin {
+    opacity: 1;
+    width: 50%;
+    margin-top: 100px;
+    text-align: right;
+    font-weight: 100;
+    margin-left: auto;
+    color: white;
+}
+
+/* ==================================================
+   10. CERTIFICATIONS
+   ================================================== */
+
+.certification {
+    margin-bottom: 35px;
+}
+
+.certification-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s ease;
+    margin-left: 10px;
+}
+
+.certification-wip-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s ease;
+    margin-left: 10px;
+}
+
+.certification-title:hover {
+    transform: translateX(8px);
+}
+
+.cert-line {
+    width: 10px;
+    height: 1px;
+    background: whitesmoke;
+    transition: width 0.2s ease;
+}
+
+.certification-title:hover .cert-line {
+    width: 20px;
+}
+
+.cert-check {
+    margin-left: 0;
+    font-size: 18px;
+    background: black;
+    color: gray;
+    opacity: 0.7;
+}
+
+/* ==================================================
+   11. SKILLS
+   ================================================== */
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 0;
+    margin-left: 0;
+    margin-bottom: 20px;
+    color: whitesmoke;
+}
+
+.skills span {
+    padding: 5px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    font-size: 12px;
+    opacity: 0.7;
+
+    background: linear-gradient(
+        135deg,
+        rgba(59, 130, 246, 0.15),
+        rgba(139, 92, 246, 0.15)
+    );
+
+    transition: all 0.25s ease;
+}
+
+.skills span:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.35);
+    background: linear-gradient(
+        135deg,
+        rgba(59, 130, 246, 0.3),
+        rgba(139, 92, 246, 0.3)
+    );
+}
+
+/* ==================================================
+   12. EXPERIENCE
+   ================================================== */
+
+.experience {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.experience-date {
+    font-size: 13px;
+    color: gray;
+}
+
+.experience-description {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.experience-card {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 30px;
+
+    padding: 10px;
+    margin-bottom: 15px;
+
+    background: black;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.experience-card:hover {
+    transform: translateY(-2px);
+    border-radius: 25px;
+    background: linear-gradient(
+        135deg,
+        rgba(59, 130, 246, 0.10),
+        rgba(139, 92, 246, 0.10)
+        );
+}
