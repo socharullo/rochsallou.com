@@ -1,0 +1,46 @@
+Ton workflow quotidien
+
+1. Tu ouvres VS Code
+
+Tu ouvres le dossier local de ton site, celui qui contient :
+
+index.html
+style.css
+script.js
+...
+
+Tu modifies ton HTML/CSS/JS normalement.
+
+2. Tu testes localement
+
+Tu peux ouvrir index.html dans ton navigateur ou utiliser l'extension Live Server de VS Code.
+
+Tu travailles donc tranquillement sur ton PC sans toucher au serveur.
+
+3. Quand tu es satisfait : Git
+
+Dans le terminal de VS Code :
+
+git status
+
+Ça te montre ce que tu as modifié.
+
+Puis :
+
+git add .
+git commit -m "Modification du design"
+git push
+
+Le push envoie tes modifications vers GitHub.
+
+4. Tu déploies sur ton serveur
+
+Sur web01 :
+
+su - roch
+cd /var/www/rochsallou.com
+git pull
+
+Et c'est tout.
+
+Nginx sert immédiatement les nouveaux fichiers.
